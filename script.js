@@ -28,6 +28,7 @@ const checkWin = () => {
     win.forEach(e => {
         if ((boxtexts[e[0]].innerText === boxtexts[e[1]].innerText) && (boxtexts[e[2]].innerText === boxtexts[e[1]].innerText) && (boxtexts[e[2]].innerText !== "")) {
             document.querySelector('.info').innerText = boxtexts[e[0]].innerText + " WON!!";
+            document.getElementById('dis').style.pointerEvents = 'none';
             gameover.play();
             let val = document.getElementsByClassName(`${boxtexts[e[0]].innerText}`)[0].innerText;
             val++;
@@ -62,6 +63,7 @@ play.addEventListener('click', () => {
     Array.from(boxtextss).forEach(element => {
         element.innerText = ""
     });
+    document.getElementById('dis').style.pointerEvents = 'auto';
     turn = "X"
     isgameover = false;
     document.getElementsByClassName("info")[0].innerText = "Turn For " + turn;
@@ -73,6 +75,7 @@ reset.addEventListener('click', () => {
     Array.from(boxtextss).forEach(element => {
         element.innerText = ""
     });
+    document.getElementById('dis').style.pointerEvents = 'auto';
     turn = "X"
     isgameover = false;
     document.getElementsByClassName("info")[0].innerText = "Turn For " + turn;
